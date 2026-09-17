@@ -1,0 +1,59 @@
+{
+  "entities": {
+    "TrialReport": {
+      "title": "TrialReport",
+      "description": "Trial report document containing details of testing, jig/part info, and identified problems.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "description": "Unique report ID" },
+        "reportNo": { "type": "string", "description": "Report number e.g. TR-2026-001" },
+        "title": { "type": "string", "description": "Report display title" },
+        "jigSubAssy": { "type": "string", "description": "Jig Sub Assembly name" },
+        "partName": { "type": "string", "description": "Part name" },
+        "partNumber": { "type": "string", "description": "Part number" },
+        "line": { "type": "string", "description": "Production line" },
+        "date": { "type": "string", "description": "Date of trial" },
+        "author": { "type": "string", "description": "Author name" },
+        "creator": { "type": "string", "description": "Report creator name" },
+        "customer": { "type": "string", "description": "Customer name" },
+        "approver": { "type": "string", "description": "Approver name" },
+        "trialRound": { "type": "string", "description": "Trial round identifier" },
+        "headerImage1": { "type": "string", "description": "Primary assembly/jig image" },
+        "headerImage2": { "type": "string", "description": "Secondary detail image" },
+        "keyProblemsSummary": { "type": "array", "description": "Summary of primary problems" },
+        "problems": { "type": "array", "description": "List of problem items" },
+        "comments": { "type": "array", "description": "List of comment items" },
+        "createdAt": { "type": "string", "description": "ISO timestamp of creation" },
+        "updatedAt": { "type": "string", "description": "ISO timestamp of last update" }
+      },
+      "required": ["id", "reportNo", "title", "createdAt", "updatedAt"]
+    },
+    "AppConfig": {
+      "title": "AppConfig",
+      "description": "Global application branding and master dropdown list configurations.",
+      "type": "object",
+      "properties": {
+        "logoUrl": { "type": "string", "description": "Header logo URL or data URL" },
+        "companyName": { "type": "string", "description": "Company display name" },
+        "customers": { "type": "array", "description": "Master list of customer names" },
+        "creators": { "type": "array", "description": "Master list of creator names" },
+        "approvers": { "type": "array", "description": "Master list of approver names" }
+      },
+      "required": ["companyName"]
+    }
+  },
+  "firestore": {
+    "/trial_reports/{reportId}": {
+      "schema": "TrialReport",
+      "description": "Collection of all trial reports accessible by users and admins."
+    },
+    "/app_config/{configId}": {
+      "schema": "AppConfig",
+      "description": "Application settings document including logo and master selection lists."
+    },
+    "/test/connection": {
+      "schema": "object",
+      "description": "Connection test document for health checks."
+    }
+  }
+}

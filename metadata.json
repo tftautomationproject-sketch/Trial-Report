@@ -1,0 +1,8 @@
+{
+  "name": "(Official App) Trial Report",
+  "description": "Professional reporting platform with dynamic dashboarding, multi-language support, and adaptive single-page PDF exports for up to six issues.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
